@@ -1,0 +1,30 @@
+---
+- name: Deploy the HTML website
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Check whether the old container exists
+      ansible.builtin.command: docker container inspect html-demo
+      register: existing_container
+      failed_when: false
+      changed_when: false
+
+    - name: Remove the old container
+      ansible.builtin.command: docker rm -f html-demo
+      when: existing_container.rc == 0
+
+    - name: Start the new container
+      ansible.builtin.command:
+        argv:
+          - docker
+          - run
+          - -d
+          - --name
+          - html-demo
+          - --restart
+          - unless-stopped
+          - -p
+          - 80:80
+          - "html-demo:{{ image_tag }}"
