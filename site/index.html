@@ -1,44 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First AWS Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f1f5f9;
-            color: #1e293b;
-        }
-        main {
-            max-width: 700px;
-            margin: 80px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px #00000012;
-            text-align: center;
-        }
-        h1 { color: #2563eb; }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A sample single-page website for a DevOps deployment lab.">
+  <title>DevOps HTML Lab</title>
+  <style>
+    :root { font-family: Arial, Helvetica, sans-serif; color: #17233b; background: #f6f8fc; scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    header { background: #fff; box-shadow: 0 2px 14px #142a4612; position: sticky; top: 0; z-index: 2; }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-size: 1.2rem; font-weight: 800; color: #2148ae; }
+    .links { display: flex; gap: 26px; font-weight: 600; }
+    .links a:hover { color: #275de0; }
+    .hero { background: linear-gradient(125deg, #17327d, #3973e8); color: #fff; padding: 100px 0; }
+    .hero h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.12; margin: 0 0 20px; max-width: 750px; }
+    .hero p { font-size: 1.15rem; line-height: 1.7; max-width: 650px; opacity: .94; }
+    .button { display: inline-block; background: #fff; color: #183c9b; padding: 14px 22px; border-radius: 9px; font-weight: 700; margin-top: 18px; }
+    .button:hover { background: #eaf0ff; }
+    section { padding: 75px 0; }
+    h2 { font-size: 2rem; margin: 0 0 18px; }
+    .intro { color: #52617b; line-height: 1.7; max-width: 750px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+    .card { background: #fff; padding: 28px; border: 1px solid #e2e8f3; border-radius: 15px; box-shadow: 0 8px 25px #172c5210; }
+    .card .icon { font-size: 2rem; }
+    .card h3 { margin: 16px 0 10px; }
+    .card p { color: #52617b; line-height: 1.6; margin: 0; }
+    .band { background: #eaf0ff; }
+    .steps { line-height: 2; padding-left: 24px; }
+    footer { text-align: center; padding: 28px; background: #142651; color: #dce6ff; }
+    @media (max-width: 700px) { .links { gap: 12px; font-size: .85rem; } .grid { grid-template-columns: 1fr; } .hero { padding: 72px 0; } }
+  </style>
 </head>
 <body>
-    <main>
-        <h1>My First AWS Website</h1>
-        <p>Developed on my desktop and deployed automatically using GitHub and AWS Amplify.</p>
-        <a href="https://aws.amazon.com/" target="_blank" rel="noopener">
-            Learn about AWS
-        </a>
-    </main>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">DevOps HTML Lab</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#deployment">Deployment</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="home">
+      <div class="container">
+        <h1>Build once. Deploy with confidence.</h1>
+        <p>A simple website for practicing GitHub, Jenkins, and automated deployment. Everything needed to display this page is in one HTML file.</p>
+        <a class="button" href="#deployment">Explore the deployment flow →</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <h2>About this project</h2>
+        <p class="intro">Welcome to the DevOps HTML Lab. Use this sample page to make a change, push it to GitHub, run your Jenkins pipeline, and check the result on your server.</p>
+      </div>
+    </section>
+
+    <section class="band" id="features">
+      <div class="container">
+        <h2>What you will practice</h2>
+        <div class="grid">
+          <article class="card"><div class="icon" aria-hidden="true">💻</div><h3>Edit</h3><p>Update the text or design in this index.html file.</p></article>
+          <article class="card"><div class="icon" aria-hidden="true">🔁</div><h3>Automate</h3><p>Push your changes and let Jenkins run the deployment pipeline.</p></article>
+          <article class="card"><div class="icon" aria-hidden="true">🚀</div><h3>Publish</h3><p>Open your server URL and see the latest version of the page.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="deployment">
+      <div class="container">
+        <h2>Deployment flow</h2>
+        <p class="intro">A straightforward workflow for your first static website deployment:</p>
+        <ol class="steps">
+          <li>Save this file as <strong>index.html</strong> in your repository.</li>
+          <li>Commit and push the change to GitHub.</li>
+          <li>Run your Jenkins pipeline.</li>
+          <li>Visit the deployed site to verify the update.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year">2026</span> DevOps HTML Lab · Made for learning</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
